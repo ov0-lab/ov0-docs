@@ -1,0 +1,74 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "纳西妲.moc3",
+		"Textures": [
+			"纳西妲.4096/texture_00.png"
+		],
+		"Physics": "纳西妲.physics3.json",
+		"DisplayInfo": "纳西妲.cdi3.json",
+		"Motions": {
+			"Idle": [
+				{
+					"File": "纳西妲 循环动画.motion3.json"
+				}
+			]
+		},
+		"Expressions": [
+			{
+				"Name": "！！！.exp3.json",
+				"File": "！！！.exp3.json"
+			},
+			{
+				"Name": "？？？.exp3.json",
+				"File": "？？？.exp3.json"
+			},
+			{
+				"Name": "茶杯.exp3.json",
+				"File": "茶杯.exp3.json"
+			},
+			{
+				"Name": "汗.exp3.json",
+				"File": "汗.exp3.json"
+			},
+			{
+				"Name": "脸红.exp3.json",
+				"File": "脸红.exp3.json"
+			},
+			{
+				"Name": "生气.exp3.json",
+				"File": "生气.exp3.json"
+			},
+			{
+				"Name": "委屈.exp3.json",
+				"File": "委屈.exp3.json"
+			},
+			{
+				"Name": "晕晕眼.exp3.json",
+				"File": "晕晕眼.exp3.json"
+			},
+			{
+				"Name": "替换眼1.exp3.json",
+				"File": "替换眼1.exp3.json"
+			}
+		]
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": [
+				"ParamMouthOpenY"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		}
+	],
+	"HitAreas": []
+}

@@ -1,0 +1,97 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.searchBar {
+  margin-left: auto;
+}
+
+.searchBar input {
+  height: 30px;
+  border-radius: 15px;
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  width: 70%;
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: center;
+  background-color: hsl(167deg 56% 73% / 25%);
+  border: 2px solid var(--ifm-color-primary-darkest);
+  border-radius: 10px;
+}
+
+.wrapper:hover {
+  box-shadow: 0 0 2px 1px var(--ifm-color-primary-dark);
+}
+
+.container {
+  width: 100%;
+}
+
+.displayHorizontal {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.textInput {
+  flex: 1;
+  height: 40px;
+  padding: 16px;
+  font-size: 20px;
+  font-family: inherit;
+  border: none;
+  min-width: 20px;
+  margin-left: 5px;
+}
+
+.textInput:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: inherit;
+}
+
+/* .searchIcon {
+  pointer-events: none;
+} */
+
+.focusHint {
+  pointer-events: none;
+  gap: 4px;
+  align-items: center;
+
+  color: 'black';
+  font-weight: 500;
+  font-family: 'inherit';
+  font-size: '12px';
+  margin-left: auto;
+}
+
+.focusHintKey {
+  color: white;
+  text-align: center;
+  padding: 3px 4px;
+  min-width: 24px;
+  border-radius: 3px;
+  letter-spacing: 0.75;
+  margin-left: 10px;
+}
+
+.focusHintLabel {
+  color: gray;
+  font-weight: 300;
+}
+
+@media (orientation: portrait) {
+  .wrapper {
+    width: 100%;
+  }
+}

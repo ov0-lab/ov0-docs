@@ -1,0 +1,469 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+// @use './components/navbar-sidebar';
+// @use './components/doc-sidebar';
+// :root {
+//   --ifm-background-color: var(--token-primary-bg-c);
+//   --ifm-navbar-link-hover-color: initial;
+//   --ifm-navbar-padding-vertical: 0;
+//   --ifm-navbar-item-padding-vertical: 0;
+
+//   --ifm-font-family-base: -apple-system, BlinkMacSystemFont, Inter, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+//     'Segoe UI emoji';
+//   --ifm-font-family-monospace: 'SFMono-Regular', 'Roboto Mono', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+
+//   --ifm-menu-link-sublist-icon: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEwIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik04Ljk5OTg4IDVMNC45OTk4OCAxTDAuOTk5ODc4IDUiIHN0cm9rZT0iIzAzMDYwQiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K');
+
+//   //#region ----------- Z Indices ------------
+//   --z-sidebar: 2000;
+//   --z-backdrop: 1100;
+//   //#endregion
+// }
+
+:root {
+  --github-icon-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12'/%3E%3C/svg%3E");
+  --gitee-icon-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M512 1024q-104 0-199-40-92-39-163-110T40 711Q0 616 0 512t40-199Q79 221 150 150T313 40q95-40 199-40t199 40q92 39 163 110t110 163q40 95 40 199t-40 199q-39 92-110 163T711 984q-95 40-199 40z m259-569H480q-10 0-17.5 7.5T455 480v64q0 10 7.5 17.5T480 569h177q11 0 18.5 7.5T683 594v13q0 31-22.5 53.5T607 683H367q-11 0-18.5-7.5T341 657V417q0-31 22.5-53.5T417 341h354q11 0 18-7t7-18v-63q0-11-7-18t-18-7H417q-38 0-72.5 14T283 283q-27 27-41 61.5T228 417v354q0 11 7 18t18 7h373q46 0 85.5-22.5t62-62Q796 672 796 626V480q0-10-7-17.5t-18-7.5z'/%3E%3C/svg%3E");
+}
+
+[data-theme='light'] {
+  --ifm-color-primary: #0ed672;
+  --ifm-color-primary-dark: #10ec13;
+  --ifm-color-primary-darker: #2def33;
+  --ifm-color-primary-darkest: #18d63e;
+  --ifm-color-primary-light: #12e840;
+  --ifm-color-primary-lighter: #13ff95;
+  --ifm-color-primary-lightest: #4cffe4;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+
+// 导航栏github图标
+.header-github-link::before {
+  content: '';
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background-color: var(--ifm-navbar-link-color);
+  mask-image: var(--github-icon-url);
+  -webkit-mask-image: var(--github-icon-url);
+  transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+// 商店链接
+.card-github-link::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: flex;
+  background-color: var(--ifm-navbar-link-color);
+  mask-image: var(--github-icon-url);
+  -webkit-mask-image: var(--github-icon-url);
+  transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.card-gitee-link::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: flex;
+  background-color: var(--ifm-navbar-link-color);
+  mask-image: var(--gitee-icon-url);
+  -webkit-mask-image: var(--gitee-icon-url);
+  transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+// 鼠标浮动样式
+.card-gitee-link:hover::before,
+.card-github-link:hover::before,
+.header-github-link:hover::before {
+  background-color: var(--ifm-navbar-link-hover-color);
+}
+
+
+// 导航栏
+.navbar {
+  box-shadow: none;
+  // padding: var(--ifm-navbar-padding-vertical) var(--ifm-navbar-padding-horizontal);
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0);
+
+  // 毛玻璃效果
+  .navbar__inner {
+    padding-left: var(--ifm-navbar-padding-horizontal);
+    padding-right: var(--ifm-navbar-padding-horizontal);
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    opacity: 1;
+  }
+
+  .navbar__title {
+    margin-left: 4px;
+    color: var(--ifm-color-primary);
+    font-family: var(--ifm-font-family-name);
+  }
+}
+
+// canvas header
+#home__header {
+  box-sizing: border-box;
+  width: 100%;
+  // height: calc(100vh - var(--ifm-navbar-height));
+  height: calc(100vh);
+  margin: 0;
+  padding: 0;
+  -webkit-touch-callout: none;
+  overflow: hidden;
+  background: #010101;
+  overflow: hidden;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    avenir next,
+    avenir,
+    helvetica neue,
+    helvetica,
+    ubuntu,
+    roboto,
+    noto,
+    segoe ui,
+    arial,
+    sans-serif;
+
+  .main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+  }
+
+  .main>.code {
+    position: absolute;
+    right: 10vw;
+    margin-right: -60px;
+    width: 640px;
+    max-width: 80%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10
+  }
+
+  .code-container {
+    position: relative;
+    margin-bottom: -60px;
+  }
+
+  .counter {
+    position: absolute;
+    top: -100px;
+    right: -20px;
+    color: white;
+    background: #394a52;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 16px 40px -5px rgba(0, 0, 0, 0.5);
+    width: 120px;
+    height: 120px;
+    font-size: 3em;
+  }
+
+  .counter>span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -15px;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  .counter>button {
+    margin: 10px;
+    padding: 5px 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    border-radius: 5px;
+    border: solid 2px white;
+    outline: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+  }
+
+  .code-container pre[class*='language-'] {
+    margin-top: -50px;
+    display: inline-block;
+    width: auto !important;
+    padding: 40px 50px 40px 45px;
+    font-size: 0.8rem !important;
+    border-radius: 10px !important;
+    box-shadow: 0 16px 50px -5px rgba(0, 0, 0, 0.6);
+    white-space: pre-wrap !important;
+  }
+
+  span.header-left {
+    font-weight: 700;
+    text-transform: uppercase;
+    position: absolute;
+    display: inline-block;
+    top: 40px;
+    left: 40px;
+    font-size: 3em;
+    color: white;
+    line-height: 1em;
+  }
+
+  a {
+    font-family:
+      -apple-system,
+      BlinkMacSystemFont,
+      avenir next,
+      avenir,
+      helvetica neue,
+      helvetica,
+      ubuntu,
+      roboto,
+      noto,
+      segoe ui,
+      arial,
+      sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: inherit;
+    position: absolute;
+    display: inline;
+    text-decoration: none;
+  }
+
+  .nav {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    left: 40px;
+    position: fixed;
+    right: 40px;
+    top: 40px;
+  }
+
+  .nav a {
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  a.bottom-left {
+    bottom: 40px;
+    left: 40px;
+  }
+
+  a.bottom-right {
+    bottom: 40px;
+    right: 40px;
+  }
+
+  .snippet-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 5px;
+  }
+
+  .snippet-lang {
+    background-color: transparent;
+    color: #fff;
+    outline: 0;
+    border-radius: 5px;
+
+    .snippet-lang-option {
+      background-color: #272822;
+    }
+  }
+
+  .copy-button {
+    box-shadow: none;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: sans-serif;
+    line-height: 1;
+    padding: 12px;
+    width: auto;
+    border-radius: 5px;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: #f8f9fa;
+    cursor: pointer;
+  }
+
+  .copy-button:hover {
+    background-color: #5f5e5d;
+  }
+
+  @media only screen and (max-width: 700px) {
+    span.header-left {
+      font-size: 1em;
+    }
+
+    .main>.code {
+      margin-right: -0px;
+    }
+
+    .code-container>pre[class*='language-'] {
+      font-size: 0.6rem !important;
+      border-radius: 10px 10px 0 0 !important;
+    }
+
+    .counter {
+      position: absolute;
+      top: -120px;
+    }
+  }
+
+  // code
+  code[class*='language-'],
+  pre[class*='language-'] {
+    color: #e4f0fb !important;
+    background: none !important;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3) !important;
+    font-family: Menlo, Monaco, 'Courier New', monospace !important;
+    font-size: 0.95em !important;
+    text-align: left !important;
+    white-space: pre !important;
+    word-spacing: normal !important;
+    word-break: normal !important;
+    word-wrap: normal !important;
+    line-height: 1.5 !important;
+
+    -moz-tab-size: 4 !important;
+    -o-tab-size: 4 !important;
+    tab-size: 4 !important;
+
+    -webkit-hyphens: none !important;
+    -moz-hyphens: none !important;
+    -ms-hyphens: none !important;
+    hyphens: none !important;
+  }
+
+  /* Code blocks */
+  pre[class*='language-'] {
+    padding: 2em 2em 3em 2em !important;
+    margin: -2.5em 0 !important;
+    overflow: auto !important;
+    border-radius: 0.75em !important;
+  }
+
+  // 背景颜色
+  :not(pre)>code[class*='language-'],
+  pre[class*='language-'] {
+    // background: #252b37 !important;
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(25px);
+    opacity: 1;
+  }
+
+  /* Inline code */
+  :not(pre)>code[class*='language-'] {
+    padding: 0.1em !important;
+    border-radius: 0.3em !important;
+    white-space: normal !important;
+  }
+
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
+    color: #02cd8a !important;
+  }
+
+  .token.punctuation {
+    color: #ffe100 !important;
+  }
+
+  .token.namespace {
+    opacity: 0.7 !important;
+  }
+
+  .token.property,
+  .token.tag,
+  .token.constant,
+  .token.symbol,
+  .token.deleted {
+    color: #e4f0fb !important;
+  }
+
+  .token.boolean,
+  .token.number {
+    color: #5de4c7 !important;
+  }
+
+  .token.selector,
+  .token.attr-value,
+  .token.string,
+  .token.char,
+  .token.builtin,
+  .token.inserted {
+    color: #ff6505 !important;
+  }
+
+  .token.attr-name,
+  .token.operator,
+  .token.entity,
+  .token.url,
+  .language-css .token.string,
+  .style .token.string,
+  .token.variable {
+    color: #add7ff !important;
+  }
+
+  .token.atrule,
+  .token.function,
+  .token.class-name {
+    color: #24d7ff !important;
+  }
+
+  .token.keyword {
+    // color: #add7ff !important;
+    color: #0040ff !important;
+  }
+
+  .token.regex,
+  .token.important {
+    color: #fffac2 !important;
+  }
+
+  .token.important,
+  .token.bold {
+    font-weight: bold !important;
+  }
+
+  .token.italic {
+    font-style: italic !important;
+  }
+
+  .token.entity {
+    cursor: help !important;
+  }
+
+}
