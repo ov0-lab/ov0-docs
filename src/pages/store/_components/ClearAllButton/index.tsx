@@ -14,6 +14,7 @@ export default function ClearAllButton(): ReactNode {
   return (
     <button
       className="button button--outline button--primary"
+      style={{ padding: '0.2rem 0.5rem' }}
       type="button"
       onClick={() => clearQueryString()}>
       取消标签

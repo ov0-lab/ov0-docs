@@ -1,4 +1,3 @@
-import { extend } from '@react-three/fiber';
 import { translate } from '@docusaurus/Translate';
 import { sortBy } from '@site/src/utils/jsUtils';
 import { plugins } from '@site/static/plugins'
@@ -32,6 +31,13 @@ interface PluginSourceOther {
   url: string
 }
 
+interface PluginAuthor {
+  /** 作者名称 */
+  name: string,
+  /** 主页链接 */
+  url?: string
+}
+
 export type PluginInfo = {
   /** 用于展示在商店的插件名称 */
   title: string;
@@ -44,7 +50,7 @@ export type PluginInfo = {
   /** 标签，可填'listener' | 'adapter' | 'nativeview' | 'webview' | 'onebot11' | 'other' ，详情见'tags.ts' */
   tags: TagType[];
   /** 作者，不填则使用source的第一个地址链接内的作者 */
-  author?: string
+  authors?: PluginAuthor[];
 };
 
 export type Tag = {
@@ -58,7 +64,7 @@ export const Tags: { [type in TagType]: Tag } = {
     label: translate({ message: '热门' }),
     description: translate({
       message:
-        'Our favorite Docusaurus sites that you must absolutely check out!',
+        '热门插件!',
       id: 'showcase.tag.favorite.description',
     }),
     color: '#e9669e',
